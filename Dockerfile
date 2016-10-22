@@ -6,6 +6,7 @@ RUN apk --update --no-cache add mono-dev bash\
 RUN wget http://ericlawrence.com/dl/MonoFiddler-v4484.zip -O fiddler.zip
 RUN unzip fiddler.zip \
     && rm fiddler.zip
+RUN sed -i "s/127.0.0.1/0.0.0.0/g" /app/attach.script 
 EXPOSE 8888
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["/usr/sbin/sshd","-D"]
