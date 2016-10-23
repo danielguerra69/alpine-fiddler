@@ -1,7 +1,7 @@
 FROM danielguerra/alpine-sshdx
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk --update --no-cache add mono gtk+2.0 ca-certificates bash\
+RUN apk --update --no-cache add mono libgdiplus-dev gtk+2.0 ca-certificates bash\
     && rm  -rf /tmp/* /var/cache/apk/*
 RUN wget http://ericlawrence.com/dl/MonoFiddler-v4484.zip -O fiddler.zip
 RUN unzip fiddler.zip \
