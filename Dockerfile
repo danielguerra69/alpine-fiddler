@@ -7,7 +7,7 @@ RUN wget http://ericlawrence.com/dl/MonoFiddler-v4484.zip -O fiddler.zip
 RUN unzip fiddler.zip \
     && rm fiddler.zip
 RUN /usr/bin/cert-sync /etc/ssl/certs/ca-certificates.crt
-RUN /usr/bin/mozroots --sync --url https://hg.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt?raw=1
+RUN /usr/bin/mozroots --sync
 EXPOSE 8888
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["/usr/sbin/sshd","-D"]
